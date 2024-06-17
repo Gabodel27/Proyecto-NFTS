@@ -30,7 +30,7 @@
   text-decoration: none;
   font-family: "Poppins" sans-serif;
   /* Debugger sirve para observar detalles de medidas en la página */
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 body {
@@ -228,12 +228,13 @@ main {
 
 #info {
   max-width: var(--max-width);
-  padding: 30px 0;
+  padding: 35px 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 30px;
+  /* border: 1px solid blue; */
 }
 
 #info h2 {
@@ -400,9 +401,9 @@ main {
   align-items: center;
 }
 
-.product-top h2 {
+.product-top h3 {
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 800;
 }
 
 .product-top p,
@@ -477,6 +478,122 @@ footer span {
   font-weight: 800;
 }
 
+/* IMPUTS (SE OCULTAN LOS MENUS HAMBURGUESA */
+#menu-toggle,
+#cart-toggle,
+.menu-label {
+  display: none;
+}
+
+/* CARRITO y Menu */
+
+.cart {
+  position: absolute;
+  background: linear-gradient(to top, #121e3c, var(--background));
+  top: 65px;
+  right: 0;
+  height: calc(100vh - 65px);
+  padding: 50px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  overflow-y: scroll;
+  display: none;
+}
+
+/* ocultar el scroll Y */
+.cart::-webkit-scrollbar {
+  display: none;
+}
+
+/* item-carrito */
+.cart-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  border: 1px solid var(--electric);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.cart-item img {
+  width: 65px;
+  height: 65px;
+}
+
+.cart h2 {
+  color: var(--text-white);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-title {
+  color: var(--text-white);
+  font-size: 14px;
+}
+
+.item-bid {
+  color: var(--text-gray);
+  font-size: 12px;
+}
+
+.item-price {
+  background: linear-gradient(to right, #30a0bc, #c43ad6);
+  background-clip: text;
+  color: transparent;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.info-handle {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.quantity-handler {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px 9px;
+  border-radius: 5px;
+  color: var(--text-white);
+}
+
+.item-quantity {
+  color: var(--text-gray);
+}
+
+.up {
+  border: 1px solid var(--electric);
+}
+
+.down {
+  background: var(--secondary);
+  border: 1px solid var(--electric);
+}
+
+.divider {
+  border: 0.5px solid var(--electric);
+}
+
+.cart-total {
+  display: flex;
+  color: var(--text-white);
+  justify-content: space-between;
+  align-items: center;
+}
+
+#cart-toggle:checked + .cart {
+  display: flex;
+}
+
 /* ---------------------------------------------------- */
 /* ==================== MEDIAQUERIES ======================= */
 /* --------------------------------------------------- */
@@ -490,6 +607,46 @@ footer span {
 /* Medidas de Tables y Notebooks */
 
 @media (max-width: 992px) {
+  /* header menú hamburguesa */
+  .navbar {
+    gap: 35px;
+  }
+
+  .navbar-list {
+    position: absolute;
+    top: 65px;
+    left: 5%;
+    right: 5%;
+    flex-direction: column;
+    width: 90%;
+    background: var(--btn-bg);
+    border: solid 2px var(--electric);
+    border-top: 0;
+    border-radius: 0 0 15px 15px;
+    gap: 35px;
+    padding: 45px 0;
+    display: none;
+  }
+
+  .navbar-list a {
+    font-size: 1.5rem;
+  }
+
+  .menu-label {
+    display: flex;
+    order: 2;
+  }
+
+  .menu-label img {
+    width: 25px;
+    height: 25px;
+  }
+  /* LA MAGIA: el elemneto seguido del + si o si tiene que seguir despues del input en el HTML  */
+
+  #menu-toggle:checked + .navbar-list {
+    display: flex;
+  }
+
   .hero-info {
     width: 100%;
     text-align: center;
@@ -497,6 +654,7 @@ footer span {
     align-items: center;
     gap: 40px;
     padding-top: 50px;
+    /* background: red; */
   }
 
   .hero-info h1 {
@@ -553,7 +711,6 @@ footer span {
   }
 
   .products-container {
-    width: 900px;
     justify-content: center;
     align-items: center;
   }
@@ -566,5 +723,50 @@ footer span {
 /* Medidas de Celular */
 
 @media (max-width: 576px) {
+  .cart {
+    width: 100%;
+    left: 0;
+  }
+
+  .cart-item {
+    flex-wrap: wrap;
+  }
+
   /* hero */
+  .hero-info h1 {
+    font-size: 2rem;
+  }
+
+  .hero-info p {
+    font-size: 1rem;
+  }
+
+  /* info */
+  #info h2 {
+    max-width: 80%;
+    text-align: center;
+  }
+
+  /* discover */
+  #Discover h2 {
+    width: 100%;
+  }
+
+  .discover-text {
+    width: 80%;
+  }
+
+  .discover-card {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .discover-card img {
+    width: 90%;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    align-items: center;
+  }
 }
