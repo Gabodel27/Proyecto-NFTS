@@ -6,7 +6,8 @@
     <title>Nucba-NFT WEB</title>
     <!-- CSS -->
     <link rel="stylesheet" href="./assets/styles.css" />
-  </head>
+    <link rel="stylesheet" href="assets/animaciones.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <body>
     <!-- HEADER /MAIN / FOOTER -->
     <header>
@@ -20,16 +21,18 @@
         <label for="menu-toggle" class="menu-label"><img src="assets/img/menu.png" alt="" class="menu-icon"></label>
         <input type="checkbox" id="menu-toggle">
         <ul class="navbar-list">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Descubre</a></li>
-          <li><a href="#">BTC</a></li>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#Discover">Descubre</a></li>
+          <li><a href="#Products">BTC</a></li>
           <li><a href="#">YouTube</a></li>
           <li><a href="#">Contacto</a></li>
         </ul>
 
         <!-- carrito -->
-         <label for="cart-toggle" class="cart-label">
-        <img src="./assets/img/cart-icon.svg" alt="carrito" class="cart-icon" /></label>
+        <label for="cart-toggle" class="cart-label">
+          <!-- <img src="./assets/img/cart-icon.svg" alt="carrito" class="cart-icon" /> -->
+          <i class="fa-solid fa-cart-shopping cart-icon"></i>
+        </label>
         <input type="checkbox" id="cart-toggle">
 
         <!-- armar el carrito -->
@@ -81,36 +84,6 @@
               <spam class="quantity-handler up">+</spam>
              </div>
           </div>
-          <!-- item 4 -->
-          <div class="cart-item">
-            <img src="assets/img/cart/cart-img.png" alt="">
-            <div class="item-info">
-              <h3 class="item-title">MESSI</h3>
-              <p class="item-bid">current bid</p>
-              <spam class="item-price">5 ETH</spam>
-            </div>
-            <!-- Handler qty -->
-             <div class="info-handle">
-              <spam class="quantity-handler down">-</spam>
-              <spam class="item-quantity">1</spam>
-              <spam class="quantity-handler up">+</spam>
-             </div>
-          </div>
-          <!-- item 5 -->
-          <div class="cart-item">
-            <img src="assets/img/cart/cart-img.png" alt="">
-            <div class="item-info">
-              <h3 class="item-title">MESSI</h3>
-              <p class="item-bid">current bid</p>
-              <spam class="item-price">5 ETH</spam>
-            </div>
-            <!-- Handler qty -->
-             <div class="info-handle">
-              <spam class="quantity-handler down">-</spam>
-              <spam class="item-quantity">1</spam>
-              <spam class="quantity-handler up">+</spam>
-             </div>
-          </div>
 
           <spam class="divider"></spam>
           <div class="cart-total">
@@ -119,6 +92,9 @@
           </div>
           <button class="btn-add">Comprar</button>
          </div>
+
+         <!-- overlay -->
+          <div class="overlay"></div>
       </nav>
     </header>
     <main>
@@ -126,7 +102,7 @@
       <!-- Hero/ Portada -->
       <section id="hero">
         <div class="hero-info">
-          <h1>Descubre la Nueva era de las Crypto</h1>
+          <h1>Descubre la Nueva era de las <span>Crypto</span></h1>
           <p>
             NUCBA NFT es el primer Marketplace educativo tecnológico de NFT, que
             son elementos digitales épicos que realmente puedes poseer. Los

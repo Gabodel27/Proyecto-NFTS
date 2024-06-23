@@ -50,6 +50,7 @@ header {
   align-items: center;
   padding: 0 50px;
   height: 70px;
+  z-index: 2;
 }
 
 .navbar,
@@ -57,11 +58,12 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 2;
 }
 
-.logo {
+/* .logo {
   height: 50%;
-}
+} */
 
 .navbar {
   gap: 75px;
@@ -74,10 +76,6 @@ header {
 .navbar-list a {
   color: var(--text-gray);
   font-size: 18px;
-}
-
-.cart-icon {
-  height: 20px;
 }
 
 /* main */
@@ -129,7 +127,7 @@ main {
 
 .hero-info span {
   font-weight: 800;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 
 /* Botón */
@@ -487,6 +485,12 @@ footer span {
 
 /* CARRITO y Menu */
 
+.cart-icon {
+  font-size: 20px;
+  color: var(--text-white);
+  cursor: pointer;
+}
+
 .cart {
   position: absolute;
   background: linear-gradient(to top, #121e3c, var(--background));
@@ -498,8 +502,17 @@ footer span {
   flex-direction: column;
   gap: 30px;
   overflow-y: scroll;
-  display: none;
+  /* display: none; */
+  /* transform y transition es para darle una pequeña animación 
+  a la cart de left al punto original */
+  transform: translate(200%);
+  transition: all 0.5s;
+  /* este z-index es para aprezca arriba del overlay y se muestre */
+  z-index: 2;
 }
+
+/* en caso de aplicar el transform: translate genera un scroll, 
+hay que indicarla al body {overflow-x: hidden}  */
 
 /* ocultar el scroll Y */
 .cart::-webkit-scrollbar {
@@ -591,7 +604,8 @@ footer span {
 }
 
 #cart-toggle:checked + .cart {
-  display: flex;
+  /* display: flex; */
+  transform: translate(0);
 }
 
 /* ---------------------------------------------------- */
